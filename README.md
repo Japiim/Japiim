@@ -26,7 +26,7 @@ Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas:
    cd <nome-do-repositório>
    ```
 
-2. Instale as dependências em cada uma das pastas (`API`, `Frontend`, `Websockets`):
+2. Instale as dependências em cada uma das pastas (`API`, `Front`, `Websockets`):
 
    - Navegue até a pasta desejada e execute o comando para instalar as dependências:
 
