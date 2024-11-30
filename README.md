@@ -63,7 +63,7 @@ Para iniciar o frontend, siga os seguintes passos:
 - Execute o seguinte comando para iniciar a aplicação frontend:
 
   ```bash
-  dc src
+  cd src
   node index.js
   ```
 
