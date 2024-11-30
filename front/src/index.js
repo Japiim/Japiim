@@ -14,8 +14,9 @@ app.set('views', path.join(__dirname, "/views"));
 
 app.get("/kanban", async function(req, res){
   const access_token = req.cookies.access_token;
+  let response;
   try{
-    const response = await axios.get('http://localhost:3000/auth/profile', {
+    response = await axios.get('http://localhost:3000/auth/profile', {
       headers: {
         Authorization: `Bearer ${access_token}`
       }
