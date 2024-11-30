@@ -45,7 +45,7 @@ Para iniciar a API, navegue até a pasta `API` e execute:
 
 ```bash
 cd API
-npm start
+npm start run:dev
 ```
 
 A API será iniciada na porta configurada no arquivo de ambiente (geralmente, `localhost:3000`).
@@ -67,15 +67,15 @@ Para iniciar o frontend, siga os seguintes passos:
   node index.js
   ```
 
-O frontend será iniciado e poderá ser acessado no seu navegador, normalmente na porta `localhost:8080` ou conforme configurado.
+O frontend será iniciado e poderá ser acessado no seu navegador, normalmente na porta `localhost:3001` ou conforme configurado.
 
 ### 3. Websockets
 
-Os **Websockets** são usados para comunicação em tempo real entre o frontend e o backend. Para iniciar a parte de websockets, navegue até a pasta `websockets` e execute:
+Os **Websockets** são usados para comunicação em tempo real entre os clientes. Para iniciar a parte de websockets, navegue até a pasta `websockets` e execute:
 
 ```bash
 cd websockets
-npm start
+npx y-websocket
 ```
 
 O servidor de websockets estará em execução e pronto para se comunicar com a API e o frontend.
