@@ -8,12 +8,35 @@ Quill.register('modules/cursors', QuillCursors);
 
 let ydoc = new Y.Doc();
 let ycolumns = ydoc.getArray('columns');
+let ynotifications = ydoc.getArray('notifications');
 const provider = new WebsocketProvider("ws://localhost:1234", "teste", ydoc);
+const awareness = provider.awareness;
 
+ynotifications.observe(function(){
+  if (Notification.permission !== "denied") {
+    // We need to ask the user for permission
+    Notification.requestPermission()
+  }
+  if(document.hidden){
+  if (!("Notification" in window)) {
+    // Check if the browser supports notifications
+    alert("This browser does not support desktop notification");
+  } else if (Notification.permission === "granted") {
+    // Check whether notification permissions have already been granted;
+    // if so, create a notification
+    const notification = new Notification(ynotifications.get(ynotifications._length-1));
+    // …
+  }
+}});
 
 ycolumns.observeDeep(function() {
+  const users=document.querySelector('#users')
   document.body.innerHTML = `
     <h1>Kanban Board</h1>
+    <div id="users-container">
+        <h3>Usuários</h3>
+        ${users.outerHTML}
+      </div>
     <button class="btn btn-primary mb-3" onclick="createColumn()">Create Column</button>
     <div id="board" class="d-flex"></div>
   `;
@@ -105,7 +128,7 @@ ycolumns.observeDeep(function() {
             userOnly: true
           }
         },
-        placeholder: 'Start collaborating...',
+        placeholder: 'Descrição',
         theme: 'snow' // or 'bubble'
       });
 
@@ -116,7 +139,8 @@ ycolumns.observeDeep(function() {
           cursors: true,
           toolbar: false  // Disable the toolbar to make it simple
         },
-        placeholder: 'Type something...',
+        placeholder: 'Titulo da Task',
+        formats:['bold']
       });
 
       // Bind the editors to Yjs
@@ -129,13 +153,44 @@ ycolumns.observeDeep(function() {
 // Function to create a new column
 function createTask(columnId) {
   ycolumns.get(columnId).push([ycolumns.get(columnId)._length]);
+  const titleId=`${ycolumns._length-1}-title`
+  ynotifications.push([`Task criada na coluna ${document.getElementById(titleId).innerText}!`])
 }
 
 function createColumn(){
   console.log(ycolumns)
   const column=new Y.Array();
   ycolumns.push([column]);
+  ynotifications.push(["Coluna Criada!"])
 }
+
+awareness.on('change', () => {
+  // Map each awareness state to a dom-string
+  const strings = []
+  awareness.getStates().forEach(state => {
+    console.log(state)
+    if (state.user) {
+      strings.push(`<div style="color:${state.user.color};">• ${state.user.name}</div>`)
+    }
+    document.querySelector('#users').innerHTML = strings.join('')
+  })
+});
+
+export const userColors = [
+  '#FFFF00', // Bright Yellow
+  '#FFD700', // Gold
+  '#000000', // Black
+  '#1C1C1C'  // Dark Gray (close to black)
+];
+
+const myColor = userColors[Math.floor(Math.random() * userColors.length)];
+
+
+awareness.setLocalStateField('user', {
+  name: username,
+  color: myColor
+});
+
 
 window.createTask = createTask;
 window.createColumn = createColumn;

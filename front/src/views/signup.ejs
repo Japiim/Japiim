@@ -6,28 +6,27 @@
   <link rel="stylesheet" href="style.css">
   <title>Cadastro</title>
   <style>
-  /* Reset básico para garantir que o layout tenha uma aparência consistente em todos os navegadores */
+  
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Definindo a cor de fundo e a fonte padrão */
+
 body {
-  background-color: #1a1a1a; /* Fundo escuro (preto) */
+  background-color: #1a1a1a; 
   font-family: Arial, sans-serif;
-  color: #fff; /* Cor do texto em branco para contraste */
-  display: flex;
+  color: #fff; 
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
 }
 
-/* Estilo para o formulário de cadastro */
+
 form {
-  background-color: #333; /* Fundo do formulário em cinza escuro */
+  background-color: #333; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -35,50 +34,45 @@ form {
   max-width: 400px;
 }
 
-/* Título do formulário */
+
 h2 {
   text-align: center;
-  color: #f1c40f; /* Amarelo */
+  color: #f1c40f; 
   margin-bottom: 20px;
 }
 
-/* Estilo para os rótulos (labels) */
+
 label {
   font-weight: bold;
-  color: #f1c40f; /* Amarelo */
+  color: #f1c40f; 
   margin-bottom: 5px;
   display: block;
 }
 
-/* Estilo para os campos de entrada */
-input[type="text"], input[type="password"], input[type="name"] {
+
+input[type="text"], input[type="password"], select {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 2px solid #f1c40f; /* Borda amarela */
+  border: 2px solid #f1c40f; 
   border-radius: 5px;
-  background-color: #444; /* Fundo escuro para os campos */
-  color: #fff; /* Texto branco nos campos */
+  background-color: #444; 
+  color: #fff; 
 }
 
-/* Foco nos campos de entrada (quando o usuário clica neles) */
-input[type="text"]:focus, input[type="password"]:focus, input[type="name"]:focus {
-  border-color: #f39c12; /* Cor de borda mais forte quando em foco */
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus {
+  border-color: #f39c12; 
   outline: none;
-  background-color: #555; /* Um pouco mais claro quando em foco */
+  background-color: #555; 
 }
 
-/* Estilo para os botões de radio (tipo de usuário) */
-input[type="radio"] {
-  margin-right: 5px;
-}
 
-/* Estilo para o botão de submit */
 button {
   width: 100%;
   padding: 12px;
-  background-color: #f1c40f; /* Fundo amarelo */
-  color: #333; /* Texto em preto */
+  background-color: #f1c40f; 
+  color: #333; 
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -87,11 +81,11 @@ button {
 }
 
 button:hover {
-  background-color: #f39c12; /* Amarelo mais forte no hover */
+  background-color: #f39c12; 
   transition: background-color 0.3s ease;
 }
 
-/* Estilo para o link de login */
+
 p {
   text-align: center;
   color: #f1c40f;
@@ -99,7 +93,7 @@ p {
 }
 
 p a {
-  color: #f1c40f; /* Amarelo para o link */
+  color: #f1c40f; 
   text-decoration: none;
   font-weight: bold;
 }
@@ -108,52 +102,47 @@ p a:hover {
   text-decoration: underline;
 }
 
-/* Estilo para a mensagem de erro, caso seja necessário */
+
 .error {
-  color: #e74c3c; /* Vermelho para erros */
+  color: #e74c3c; 
   margin-top: 15px;
   text-align: center;
 }
   </style>
 </head>
 <body>
-  <!-- Contêiner principal -->
+  
   <section class="container">
     <form action="/signup" method="POST" class="form-cadastro">
       <h2>Cadastro</h2>
 
-      <!-- Campo para nome -->
+      
       <div class="form-group">
         <label for="name">Nome</label>
         <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
       </div>
 
-      <!-- Campo para senha -->
+      
       <div class="form-group">
         <label for="password">Senha</label>
         <input type="password" id="password" name="password" required placeholder="Crie uma senha segura">
       </div>
 
-      <!-- Tipo de Usuário -->
-      <fieldset class="form-group">
-        <legend>Tipo de Usuário:</legend>
-        <div class="radio-group">
-          <label for="admin">Admin</label>
-          <input type="radio" id="admin" name="role" value="admin" required>
-          
-        </div>
-        <div class="radio-group">
-          <label for="user">Usuário</label>
-          <input type="radio" id="user" name="role" value="user" required>
-          
-        </div>
-      </fieldset>
+      
+      <div class="form-group">
+        <label for="role">Tipo de Usuário:</label>
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Selecione o tipo de usuário</option>
+          <option value="admin">Admin</option>
+          <option value="user">Usuário</option>
+        </select>
+      </div>
 
-      <!-- Botão de envio -->
+      
       <button type="submit">Cadastrar</button>
     </form>
 
-    <!-- Link para login -->
+   
     <p>Já tem uma conta? <a href="/login">Entrar</a></p>
   </section>
 </body>

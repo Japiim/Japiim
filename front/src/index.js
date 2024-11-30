@@ -26,7 +26,7 @@ app.get("/kanban", async function(req, res){
     return res.render("erro", {err:err});
   }
   const profile = response.data;
-  res.render("kanban");
+  res.render("kanban", {profile:profile});
 })
 
 app.get("/login", function(req, res){
@@ -51,7 +51,6 @@ app.post("/signup", async function(req, res){
 
 app.post('/login', async function(req, res, next) {
   const user = req.body;
-  console.log(user)
   let response;
   try{
     response = await axios.post("http://localhost:3000/auth/login", {name:user.name, password:user.password});
@@ -68,6 +67,10 @@ app.post('/login', async function(req, res, next) {
   });
   return res.redirect('/kanban');
 });
+
+app.get("/", function(req, res){
+  res.render("landing");
+})
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
