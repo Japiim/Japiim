@@ -45,6 +45,7 @@ Para iniciar a API, navegue até a pasta `API` e execute:
 
 ```bash
 cd api
+docker compose up -d
 npm start run:dev
 ```
 
