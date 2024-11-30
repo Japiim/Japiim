@@ -35,7 +35,7 @@ Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas:
      npm install
      ```
 
-   Repita esse processo para as pastas **API**, **Frontend** e **Websockets**.
+   Repita esse processo para as pastas **API**, **Front** e **Websockets**.
 
 ## Executando o Projeto
 
