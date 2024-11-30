@@ -79,4 +79,8 @@ cd websocket-server
 npx y-websocket
 ```
 
-O servidor de websockets estará em execução e pronto para se comunicar com a API e o frontend.
+
+### CRÉDITOS
+
+y-websocket-server: https://github.com/yjs/y-websocket
+
