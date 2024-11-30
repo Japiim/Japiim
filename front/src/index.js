@@ -14,14 +14,17 @@ app.set('views', path.join(__dirname, "/views"));
 
 app.get("/kanban", async function(req, res){
   const access_token = req.cookies.access_token;
-  console.log(access_token);
-  const response = await axios.get('http://localhost:3000/auth/profile', {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  });
+  try{
+    const response = await axios.get('http://localhost:3000/auth/profile', {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    });
+  }
+  catch(err){
+    return res.render("erro", {err:err});
+  }
   const profile = response.data;
-  console.log(profile);
   res.render("kanban");
 })
 
@@ -35,16 +38,26 @@ app.get("/signup", function(req, res){
 
 app.post("/signup", async function(req, res){
   const user=req.body;
-
-  const response = await axios.post("http://localhost:3000/users/signup", user);
+  let response;
+  try{
+    response = await axios.post("http://localhost:3000/users/signup", user);
+  }
+  catch(err){
+    return res.render("erro", {err:err})
+  }
   return res.redirect("/login")
 });
 
-app.post('/login', async function(req, res) {
+app.post('/login', async function(req, res, next) {
   const user = req.body;
   console.log(user)
-  const response = await axios.post("http://localhost:3000/auth/login", {name:user.name, password:user.password});
-  console.log(response.data)
+  let response;
+  try{
+    response = await axios.post("http://localhost:3000/auth/login", {name:user.name, password:user.password});
+  }
+  catch(err){
+    return res.render("erro", {err:err})
+  }
   const {access_token} = response.data.token;
   console.log(access_token)
   res.cookie("access_token", access_token, {

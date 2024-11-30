@@ -6,3 +6,9 @@
   overflow: hidden; / Prevent resizing /
   padding: 0 10px; / Add padding as needed */
 }
+
+
+.description-editor {
+  height: 200px; /* Ajuste a altura conforme necessário */
+  width: 100%; /* Ajuste a largura conforme necessário */
+}

@@ -33,7 +33,7 @@ export class IndexController {
     async registerUser(@Body() UsersDTO: UsersDTO) {
         const user = new User();
         user.name = UsersDTO.name;
-        user.password= await this.passwordService.hashPassword(UsersDTO.password)
+        user.password= await this.passwordService.hashPassword(UsersDTO.password);
         user.role = UsersDTO.role;
 
         try{
