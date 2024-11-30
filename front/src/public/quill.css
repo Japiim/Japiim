@@ -1,0 +1,8 @@
+#board .columnTitle-container {
+  display: flex;
+  align-items: center; /* Vertically center text /
+  justify-content: space-between; / Adjust alignment if needed /
+  height: 40px; / Fixed height for consistent size /
+  overflow: hidden; / Prevent resizing /
+  padding: 0 10px; / Add padding as needed */
+}

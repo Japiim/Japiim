@@ -1,0 +1,76 @@
+/* Estilos gerais do corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Cor de fundo leve */
+  color: #333; /* Cor do texto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total da tela */
+  margin: 0;
+}
+
+/* Estilos do formulário */
+form {
+  background-color: #fff; /* Fundo branco para o formulário */
+  border: 2px solid #000; /* Borda preta */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 300px; /* Largura fixa do formulário */
+}
+
+/* Título do formulário */
+h2 {
+  color: #ffcc00; /* Amarelo */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos dos rótulos */
+label {
+  display: block; /* Faz os rótulos ocuparem toda a largura */
+  margin-bottom: 5px; /* Espaçamento abaixo do rótulo */
+}
+
+/* Estilos dos campos de entrada */
+input[type="text"],
+input[type="password"],
+input[type="radio"] {
+  width: 100%; /* Largura total dos campos */
+  padding: 10px; /* Espaçamento interno */
+  margin-bottom: 15px; /* Espaçamento abaixo dos campos */
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 4px; /* Bordas arredondadas */
+  box-sizing: border-box; /* Inclui padding e borda na largura total */
+}
+
+/* Estilos dos botões */
+button {
+  background-color: #ffcc00; /* Amarelo */
+  color: #000; /* Texto preto */
+  border: none; /* Sem borda */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno */
+  cursor: pointer; /* Cursor em forma de mão */
+  width: 100%; /* Largura total do botão */
+  font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+button:hover {
+  background-color: #e6b800; /* Amarelo mais escuro */
+}
+
+/* Estilos do link */
+p {
+  text-align: center; /* Centraliza o texto */
+}
+
+a {
+  color: #ffcc00; /* Amarelo */
+  text-decoration: none; /* Remove sublinhado */
+}
+
+a:hover {
+  text-decoration: underline; /* Sublinha ao passar o mouse */
+}

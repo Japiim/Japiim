@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Login</title>
+  <style>
+    /* Resetando estilos padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Definindo fontes e cores principais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111111; /* fundo preto */
+  color: #f1f1f1; /* texto em branco */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* altura da tela */
+  padding: 0 20px;
+}
+
+form {
+  background-color: #222222; /* fundo do formulário */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #f7c500; /* Amarelo */
+  margin-bottom: 20px;
+}
+
+/* Estilo para os campos de input */
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 16px;
+  color: #f1f1f1;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #f7c500; /* Bordas amarelas */
+  background-color: #333333;
+  color: #f1f1f1;
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f7a500; /* Amarelo mais forte no foco */
+}
+
+/* Botão de submit */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f7c500; /* Amarelo */
+  color: #111111; /* Preto */
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f79e00; /* Amarelo mais escuro no hover */
+}
+
+/* Estilo para o link de cadastro */
+p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+a {
+  color: #f7c500;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="/login" method="POST" class="login-form">
+      <h2 class="form-title">Login</h2>
+      
+      <!-- Nome do Usuário -->
+      <div class="input-group">
+        <label for="name" class="input-label">Nome</label>
+        <input type="text" id="name" name="name" class="input-field" required>
+      </div>
+
+      <!-- Senha do Usuário -->
+      <div class="input-group">
+        <label for="password" class="input-label">Senha</label>
+        <input type="password" id="password" name="password" class="input-field" required>
+      </div>
+      
+      <!-- Botão de Envio -->
+      <button type="submit" class="submit-btn">Entrar</button>
+    </form>
+    
+    <!-- Link para Cadastro -->
+    <p class="signup-link">
+      Não tem uma conta? <a href="/auth/signup" class="signup-link-text">Cadastre-se</a>
+    </p>
+  </div>
+</body>
+</html>
+
