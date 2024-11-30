@@ -44,7 +44,7 @@ Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas:
 Para iniciar a API, navegue até a pasta `API` e execute:
 
 ```bash
-cd API
+cd api
 npm start run:dev
 ```
 
@@ -74,7 +74,7 @@ O frontend será iniciado e poderá ser acessado no seu navegador, normalmente n
 Os **Websockets** são usados para comunicação em tempo real entre os clientes. Para iniciar a parte de websockets, navegue até a pasta `websockets` e execute:
 
 ```bash
-cd websockets
+cd websocket-server
 npx y-websocket
 ```
 
